@@ -29,6 +29,8 @@ function ProductsList() {
 		setCart(cartTemp);
 
 		setCount(--count);
+		console.log(cart);
+		console.log(count);
 	};
 
 	const addingItem = (item) => {
@@ -38,6 +40,8 @@ function ProductsList() {
 		setCart(cartTemp);
 
 		setCount(++count);
+		console.log(cart);
+		console.log(count);
 	};
 
 	const addToCart = (event) => {
