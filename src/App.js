@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Context from './Context';
+import data from './data';
+import ProductsList from './ProductsList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [ list, setList ] = useState(data.data);
+	const [ cart, setCart ] = useState({});
+	const [ count, setCount ] = useState(0);
+
+	// useEffect(() => {
+	// 	const search = async () => {
+	// 		const res = await fetch('/data.js');
+	// 		console.log(res);
+	// 		const dataList = await res.json();
+	// 		console.log(dataList);
+	// 		setList(dataList);
+	// 	};
+	// 	search();
+	// 	console.log('iaca si eu');
+	// }, []);
+
+	return (
+		<Context.Provider value={{ list, setList, cart, setCart, count, setCount }}>
+			<ProductsList />
+		</Context.Provider>
+	);
 }
 
 export default App;
